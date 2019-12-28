@@ -6,7 +6,7 @@ const Events = models.tbl_events
 const Users = models.tbl_users
 
 const Op = Sequelize.Op;
-//where:{categoryId:categoryId,id :{[Op.not]:[req.params.id]}},
+
 exports.showCategories = (req, res) => {
     Categories.findAll({
         attributes: ['id', 'name'],
