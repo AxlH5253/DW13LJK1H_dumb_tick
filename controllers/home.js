@@ -21,7 +21,7 @@ exports.showEvents = (req, res) => {
 exports.showEvents = (req, res) => {
     if(req.query.title){
         Events.findAll({
-            where:{title:{[Op.like]:req.query.title}},
+            where:{title:{[Op.like]:'%'+req.query.title+'%'}},
             include:[{model:Categories,attributes:['id','name'],as:'category'},
                     {model:Users,attributes:['id','username','phonrNumber','email','img'],as:'createdBy'}]
         }).then(response=>res.send(response))

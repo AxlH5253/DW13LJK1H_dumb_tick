@@ -11,6 +11,8 @@ exports.register = (req,res)=>{
     if (!req.body.name) errors.push("`name` is required");
     if (!req.body.email) errors.push("`email` is required");
     if (!req.body.password) errors.push("`password` is required");
+    if (!req.body.img) errors.push("`img` is required");
+    if (!req.body.phoneNumber) errors.push("`phoneNumber` is required");
     const hasErrors = Boolean(errors.length);
 
     if (hasErrors) {
@@ -22,8 +24,10 @@ exports.register = (req,res)=>{
     const username = req.body.username
     const email = req.body.email
     const password = req.body.password
+    const img = req.body.img
+    const phonrNumber = req.body.phoneNumber
 
-    let request = {'username':username,'email':email,'password':password}
+    let request = {'username':username,'email':email,'password':password,'phonrNumber':phonrNumber,'img':img}
     User.create(request).then(response=>{
         let id = response.id
         const token = jwt.sign({id:id},key.secret)

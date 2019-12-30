@@ -19,6 +19,8 @@ const HomeController = require('./controllers/home')
 const CategoryController = require('./controllers/categories')
 const Login = require('./controllers/login')
 const Register = require('./controllers/register')
+const Event = require('./controllers/events')
+const Users = require('./controllers/users')
 
 app.group("/api/v1", (router) => {
     router.get('/categories', HomeController.showCategories)  
@@ -31,6 +33,13 @@ app.group("/api/v1", (router) => {
 
     router.post('/login',Login.login)
     router.post('/register',Register.register)
+
+    router.get('/event/:id',Event.showDetailEvent)
+
+    router.get('/profile/:id',Users.showUserProfil)
+    router.get('/user/:id/favorite',Users.showUserFavorite)
+
+    router.post('/event',auth,Event.addEvents)
 })
 
 

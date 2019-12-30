@@ -8,7 +8,13 @@ module.exports = (sequelize, DataTypes) => {
     img: DataTypes.STRING
   }, {});
   tbl_users.associate = function(models) {
-    // associations can be defined here
+    tbl_users.hasMany(
+      models.tbl_favorites, {as : 'users', foreignKey : 'userId'}
+    ) 
+
+    tbl_users.hasMany(
+      models.tbl_events, {as : 'events', foreignKey : 'userId'}
+    ) 
   };
   return tbl_users;
 };
