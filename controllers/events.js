@@ -24,7 +24,7 @@ exports.addEvents = (req, res) => {
     
     if (!req.body.title) errors.push("`title` is required");
     if (!req.body.img) errors.push("`img` is required");
-    if (!req.body.descriptions) errors.push("`descriptions` is required");
+    if (!req.body.description) errors.push("`description` is required");
     if (!req.body.categoryId) errors.push("`categoryId` is required");
     if (!req.body.price) errors.push("`price` is required");
     if (!req.body.address) errors.push("`address` is required");
@@ -50,8 +50,8 @@ exports.addEvents = (req, res) => {
     })
 
     request = {'title':req.body.title,'img':req.body.img,'description' : req.body.description,
-                'categoryId':req.body.categoryId,'userId':userId,'startTime':req.body.startTime,
-                'endTime':req.body.endTime,'price':req.body.price,'address':req.body.address,'usrlMaps':req.body.usrlMaps}
+                'categoryId':req.body.categoryId,'userId':userId,'startAt':req.body.startTime,
+                'endAt':req.body.endTime,'price':req.body.price,'address':req.body.address,'urlMaps':req.body.urlMaps}
             
     Events.create(request).then(response =>{
     id = response.id

@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     totalPrice: DataTypes.INTEGER
   }, {});
   tbl_orders.associate = function(models) {
-    // associations can be defined here
+    tbl_orders.belongsTo(models.tbl_users, {foreignKey : 'userId'});
+    tbl_orders.belongsTo(models.tbl_events, {foreignKey : 'eventId'});
   };
   return tbl_orders;
 };

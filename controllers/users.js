@@ -9,9 +9,10 @@ const Op = Sequelize.Op;
 
 
 exports.showUserProfil = (req, res) => {
+    let userId = req.userId
     Users.findAll({
-        where:{id:req.params.id},
-        attributes:['id','username','email','phonrNumber']
+        where:{id:userId},
+        attributes:['id','username','email','phonrNumber','img']
     }).then(response =>res.send(response))
 }
 
