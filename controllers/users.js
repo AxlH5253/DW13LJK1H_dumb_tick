@@ -18,7 +18,7 @@ exports.showUserProfil = (req, res) => {
 
 exports.showUserFavorite = (req,res) => {
     Favorites.findAll({
-        whereL:{idUsers:req.params.id},
+        where:{userId:req.params.id},
         include:[{model:Events,attributes:['id','title']}],
     }).then(response=>{
         res.send(response)

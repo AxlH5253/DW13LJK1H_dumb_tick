@@ -41,6 +41,12 @@ app.group("/api/v1", (router) => {
     router.post('/event',auth,Event.addEvents)
 
     router.post('/order',auth,Orders.addOrder)
+    router.post('/orders',auth,Orders.showOrders)
+
+    router.put('/order',auth,Orders.confirmOrders)
+    router.put('/aproveorder',auth,Orders.aproveOrders)
+    
+    router.post('/ticket',auth,Orders.showTicket)
 })
 
 

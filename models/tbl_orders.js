@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     totalPrice: DataTypes.INTEGER
   }, {});
   tbl_orders.associate = function(models) {
-    tbl_orders.belongsTo(models.tbl_users, {foreignKey : 'userId'});
-    tbl_orders.belongsTo(models.tbl_events, {foreignKey : 'eventId'});
+    tbl_orders.belongsTo(models.tbl_users, {foreignKey : 'userId',as:'user'});
+    tbl_orders.belongsTo(models.tbl_events, {foreignKey : 'eventId',as:'event'});
   };
   return tbl_orders;
 };
