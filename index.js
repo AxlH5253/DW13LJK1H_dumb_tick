@@ -47,6 +47,8 @@ app.group("/api/v1", (router) => {
     router.put('/aproveorder',auth,Orders.aproveOrders)
     
     router.post('/ticket',auth,Orders.showTicket)
+
+    router.put('/updateuser',auth,Users.updateProfil)
 })
 
 
