@@ -22,12 +22,12 @@ exports.adddCategory = (req, res) => {
         return res.send(result)
     }
 
-    Categories.create(request).then(response =>{
+    Categories.create({name:req.body.name}).then(response =>{
     id = response.id
             
         Categories.findAll({
         }).then(response =>{
-            result.push(response)
+            res.send(response)
         })
     })
 }
