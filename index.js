@@ -23,6 +23,7 @@ const Orders = require('./controllers/orders')
 
 app.group("/api/v1", (router) => {
     router.get('/categories', HomeController.showCategories)  
+    
     router.get('/events',HomeController.showEvents)
     router.get('/events?title=',HomeController.showEvents)
     router.get('/events?start_time=',HomeController.showEvents)
