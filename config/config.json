@@ -19,7 +19,7 @@
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
     "protocol": "postgres",
-    "host":"https://back-end-dumb-tick.herokuapp.com/",
+    "host":"https://dumb-tick-app.herokuapp.com/",
     "dialectOptions": {
       "ssl": true
     }
