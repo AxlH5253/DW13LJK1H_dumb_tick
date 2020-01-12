@@ -22,6 +22,7 @@ const Users = require('./controllers/users')
 const Orders = require('./controllers/orders')
 
 app.group("/api/v1", (router) => {
+    router.post('/category',CategoryController.adddCategory)
     router.get('/categories', HomeController.showCategories)  
     
     router.get('/events',HomeController.showEvents)

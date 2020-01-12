@@ -7,6 +7,31 @@ const Users = models.tbl_users
 
 const Op = Sequelize.Op;
 
+exports.adddCategory = (req, res) => {
+   
+    let result = [];
+    const errors = [];
+    
+    if (!req.body.name) errors.push("`name` is required");
+    
+    const hasErrors = Boolean(errors.length);
+
+    if (hasErrors) {
+        let objError = Object.assign({}, errors)
+        result.push(objError)
+        return res.send(result)
+    }
+
+    Categories.create(request).then(response =>{
+    id = response.id
+            
+        Categories.findAll({
+        }).then(response =>{
+            result.push(response)
+        })
+    })
+}
+
 exports.showEventsByCategory = (req, res) => {
     Events.findAll({
         where:{categoryId:req.params.id},
